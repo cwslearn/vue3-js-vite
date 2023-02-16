@@ -18,7 +18,7 @@ const handleClickMini = () => {
 </script>
 <style scoped lang="scss">
 .box-container {
-    width: 100vw;
+    background-color: #f5f5f5;
 
     .box-head {
         height: 40px;
@@ -26,7 +26,6 @@ const handleClickMini = () => {
     }
 
     .box-content {
-        background-color: #f5f5f5;
         max-width: 1220px;
         margin: 0 auto;
         min-height: calc(100vh - 140px);

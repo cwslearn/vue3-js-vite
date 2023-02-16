@@ -14,3 +14,7 @@
 .fade-x-leave-from {
   opacity: 0;
 }
+html,body,#app {
+  margin: 0;
+  padding: 0;
+}
