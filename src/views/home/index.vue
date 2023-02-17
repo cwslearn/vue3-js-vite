@@ -1,31 +1,61 @@
 <template>
   <div class="box-home">
     <div class="box-home-video">video</div>
-    <div class="box-home-type">
-      <div class="box-home-type-head">
-        type1
-      </div>
-      <div class="box-home-type-content">
-        <div v-for="item in arrlist" :key="item" class="box-home-type-content-detail">
-          <img :src="imgsrc" />
-          <div class="box-home-type-content-detail-text">
-            <div>福果</div>
-            <div>描述。。。。。</div>
-            <div>199</div>
-          </div>
+    <template v-for="item in list">
+      <a-divider :margin="10"></a-divider>
+      <div class="box-home-type">
+        <div class="box-home-type-head">
+          <a-row :gutter="24">
+            <a-col :span="12">
+              <div>{{ item.title }}</div>
+            </a-col>
+            <a-col :span="12">
+              <div class="box-home-type-head-more">更多</div>
+            </a-col>
+          </a-row>
+
+        </div>
+        <div class="box-home-type-content">
+          <a-row :gutter="[24, 12]">
+            <a-col :span="6" v-for="item in arrlist" :key="item">
+              <div class="box-home-type-content-detail">
+                <img :src="imgsrc" />
+                <div class="box-home-type-content-detail-text">
+                  <div>福果</div>
+                  <div>描述。。。。。</div>
+                  <div>199</div>
+                </div>
+              </div>
+            </a-col>
+          </a-row>
         </div>
       </div>
-    </div>
-    <div class="box-home-type">type2</div>
-    <div class="box-home-type">type3</div>
-    <div class="box-home-type">type4</div>
-    <div class="box-home-type">type5</div>
-  </div>
+    </template>
+</div>
 </template>
 <script setup>
 import { fuguo } from '@assets/imgs/index.js';
+import { reactive } from 'vue';
 let imgsrc = fuguo;
-const arrlist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+const arrlist = [1, 2, 3, 4, 5, 6, 7, 8]
+let list = reactive([
+  {
+    title: '火红色'
+  },
+  {
+    title: '进口版'
+  },
+  {
+    title: '迷你款'
+  },
+  {
+    title: '大福贵'
+  },
+  {
+    title: '独特区'
+  },
+
+])
 </script>
 <style scoped lang="scss">
 .box-home {
@@ -35,10 +65,17 @@ const arrlist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
   &-type {
     box-sizing: border-box;
-    height: 700px;
+    min-height: 700px;
 
     &-head {
-      height: 80px;
+      font-size: 20px;
+      color: #333;
+      padding: 5px 0 15px 0;
+
+      &-more {
+        text-align: right;
+        // padding-right: 10px;
+      }
     }
 
     &-content {
@@ -48,9 +85,9 @@ const arrlist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
       &-detail {
         box-sizing: border-box;
-        width: calc(20% - 20px);
-        height: 300px;
-        margin: 10px;
+        // width: calc(20% - 20px);
+        // height: 300px;
+        margin-bottom: 20px;
         padding: 20px;
         padding-bottom: 0;
         background-color: #fff;
@@ -77,7 +114,7 @@ const arrlist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
           align-items: center;
 
           div {
-            height: 30%;
+            margin: 5px 0;
           }
         }
       }
