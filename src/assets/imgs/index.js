@@ -1,4 +1,2 @@
-import fuguo from './fuguo.jpg';
-export {
-  fuguo
-}
+import fuguo from './fuguo.jpg'
+export { fuguo }

@@ -19,7 +19,6 @@ module.exports = {
   },
   rules: {
     quotes: 'off',
-    'no-unused-vars': 'error',
-    printWidth: 80
+    'no-unused-vars': 'error'
   }
 }

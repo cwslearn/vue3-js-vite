@@ -108,8 +108,8 @@ isIPV4.name = '匹配IPV4地址'
 export const isIPV6 = /^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$/g
 isIPV6.name = '匹配IPV6地址'
 
-export const isBase64 = /[^A-Za-z0-9\+\/\=]/g
-isBase64.name = '匹配Base64'
+// export const isBase64 = /[^A-Za-z0-9\+\/\=]/g
+// isBase64.name = '匹配Base64'
 
 export const isPasswordStrong = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[^]{8,16}$/g
 isPasswordStrong.name = '匹配强密码'

@@ -1,7 +1,7 @@
 <template>
   <div class="box-home">
     <div class="box-home-video">video</div>
-    <template v-for="item in list">
+    <template v-for="item in list" :key="item.title">
       <a-divider :margin="10"></a-divider>
       <div class="box-home-type">
         <div class="box-home-type-head">
@@ -13,7 +13,6 @@
               <div class="box-home-type-head-more">更多</div>
             </a-col>
           </a-row>
-
         </div>
         <div class="box-home-type-content">
           <a-row :gutter="[24, 12]">
@@ -31,12 +30,12 @@
         </div>
       </div>
     </template>
-</div>
+  </div>
 </template>
 <script setup>
-import { fuguo } from '@assets/imgs/index.js';
-import { reactive } from 'vue';
-let imgsrc = fuguo;
+import { fuguo } from '@assets/imgs/index.js'
+import { reactive } from 'vue'
+let imgsrc = fuguo
 const arrlist = [1, 2, 3, 4, 5, 6, 7, 8]
 let list = reactive([
   {
@@ -53,8 +52,7 @@ let list = reactive([
   },
   {
     title: '独特区'
-  },
-
+  }
 ])
 </script>
 <style scoped lang="scss">

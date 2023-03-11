@@ -20,7 +20,7 @@ import IconsResolver from 'unplugin-icons/resolver'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 
 // https://vitejs.dev/config/
-export default defineConfig((mode) => {
+export default defineConfig(mode => {
   const viteEnv = loadEnv(mode, './')
   return {
     base: viteEnv.VITE_BASE,
@@ -62,7 +62,6 @@ export default defineConfig((mode) => {
         '@views': fileURLToPath(new URL('./src/views', import.meta.url)),
         '@coms': fileURLToPath(new URL('./src/components', import.meta.url)),
         '@assets': fileURLToPath(new URL('./src/assets', import.meta.url))
-
       }
     },
     plugins: [
@@ -116,11 +115,11 @@ export default defineConfig((mode) => {
         compiler: 'vue3',
         customCollections: {
           // user图标集，给svg文件设置fill="currentColor"属性，使图标的颜色具有适应性
-          user: FileSystemIconLoader('src/assets/svg/user', (svg) =>
+          user: FileSystemIconLoader('src/assets/svg/user', svg =>
             svg.replace(/^<svg /, '<svg fill="currentColor" ')
           ),
           // home 模块图标集
-          home: FileSystemIconLoader('src/assets/svg/home', (svg) =>
+          home: FileSystemIconLoader('src/assets/svg/home', svg =>
             svg.replace(/^<svg /, '<svg fill="currentColor" ')
           )
         },

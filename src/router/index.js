@@ -14,7 +14,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'init',
-      component: () => import('@views/init/index.vue'),
+      component: () => import('@views/init/initIndex.vue'),
       redirect: '/',
       children: [
         {
@@ -23,7 +23,7 @@ const router = createRouter({
           meta: {
             title: 'home'
           },
-          component: () => import('@views/home/index.vue')
+          component: () => import('@views/home/homeIndex.vue')
         },
         ...menuRouter
       ]
