@@ -1,115 +1,1 @@
-<template>
-  <div class="box-container">
-    <div class="box-head">
-      <a-row>
-        <a-col :flex="3" :align="center">
-          <div class="box-head-nav box-head-logo">源心水草</div>
-        </a-col>
-        <a-col :flex="6">
-          <div
-            class="box-head-nav box-head-menu"
-            v-for="menu in menuList"
-            :key="menu.path"
-          >
-            {{ menu.name }}
-          </div>
-        </a-col>
-        <a-col :flex="3">
-          <div class="box-head-cart">
-            <div class="box-head-nav cart">购物车</div>
-            <div class="box-head-nav login">登录</div>
-          </div>
-        </a-col>
-      </a-row>
-    </div>
-    <div class="box-content">
-      <RouterView />
-    </div>
-    <div class="box-footer">footer</div>
-  </div>
-</template>
-<script setup>
-import { reactive } from 'vue'
-import { RouterView } from 'vue-router'
-const menuList = reactive([
-  {
-    name: '首页',
-    path: 'home'
-  },
-  {
-    name: '全部商品',
-    path: 'shop'
-  },
-  {
-    name: '造景',
-    path: 'perfect'
-  }
-])
-// const handleClickMini = () => {
-//   AMessage.info('hello world')
-// }
-</script>
-<style scoped lang="scss">
-.box-container {
-  background-color: rgba(229, 229, 229, 0.3);
-
-  .box-head {
-    height: 40px;
-    background-color: #333;
-
-    .arco-row {
-      height: 100%;
-      max-width: 1220px;
-      margin: 0 auto;
-
-      .arco-col {
-        height: 100%;
-        display: flex;
-
-        div {
-          height: 100%;
-          display: flex;
-          align-items: center;
-          color: rgba(255, 255, 255, 0.8);
-        }
-
-        // .box-head-logo {
-        //     padding-left: 10px;
-        // }
-
-        .box-head-menu {
-          padding: 0 15px;
-        }
-
-        .box-head-cart {
-          width: 100%;
-          // padding-right: 20px;
-          display: flex;
-          justify-content: flex-end;
-
-          div {
-            margin-right: 10px;
-          }
-        }
-
-        .box-head-nav {
-          &:hover {
-            cursor: pointer;
-            color: #fff;
-          }
-        }
-      }
-    }
-  }
-
-  .box-content {
-    max-width: 1220px;
-    margin: 0 auto;
-    min-height: calc(100vh - 140px);
-  }
-
-  .box-footer {
-    height: 100px;
-  }
-}
-</style>
+<template>  <div class="box-container">    <div class="box-head">      <a-row>        <a-col          :flex="3"          align="middle"        >          <div class="box-head-nav box-head-logo">快速迭代</div>        </a-col>        <a-col :flex="6">          <div            class="box-head-nav box-head-menu"            v-for="menu in menuList"            :key="menu.path"          >            {{ menu.name }}          </div>        </a-col>        <a-col :flex="3">          <div            class="box-head-cart"            v-if="!username"          >            <div class="box-head-nav cart">购物车</div>            <div              class="box-head-nav login"              @click="handleClick('login')"            >              登录            </div>            <div class="box-head-nav login">·</div>            <div              class="box-head-nav login"              @click="handleClick('register')"            >              注册            </div>          </div>          <div            class="box-head-cart"            v-else          >            <div class="box-head-nav login">              {{ username }}            </div>            <div class="box-head-nav login">·</div>            <div              class="box-head-nav login"              @click="handleClick('loginout')"            >              注销            </div>          </div>        </a-col>      </a-row>    </div>    <div class="box-content">      <RouterView />    </div>    <div class="box-footer">footer</div>  </div></template><script setup>import { reactive, computed } from 'vue'import { RouterView, useRouter } from 'vue-router'import { userStore } from '@/stores/index.js'let router = useRouter()const user_store = userStore()let username = computed(() => user_store.usermsg?.username)const menuList = reactive([  {    name: '首页',    path: 'home'  }  // {  //   name: '全部商品',  //   path: 'shop'  // },  // {  //   name: '造景',  //   path: 'perfect'  // }])// 处理点击事件const handleClick = (type, val) => {  console.log('init', type, val)  if (type === 'login') {    router.push('/login')  }  if (type === 'register') {    router.push('/register')  }  if (type === 'loginout') {    localStorage.removeItem('userInfo')    user_store.userInfo = null    router.push('/login')  }}</script><style scoped lang="scss">.box-container {  background-color: rgba(229, 229, 229, 0.3);  .box-head {    height: 40px;    background-color: #333;    position: fixed;    width: 100%;    left: 0;    top: 0;    .arco-row {      height: 100%;      max-width: 1220px;      margin: 0 auto;      .arco-col {        height: 100%;        display: flex;        div {          height: 100%;          display: flex;          align-items: center;          color: rgba(255, 255, 255, 0.8);        }        // .box-head-logo {        //     padding-left: 10px;        // }        .box-head-menu {          padding: 0 15px;        }        .box-head-cart {          width: 100%;          // padding-right: 20px;          display: flex;          justify-content: flex-end;          div {            margin-right: 10px;          }        }        .box-head-nav {          &:hover {            cursor: pointer;            color: #fff;          }        }      }    }  }  .box-content {    max-width: 1220px;    margin: 40px auto 0px auto;    min-height: calc(100vh - 100px);  }  .box-footer {    height: 100px;  }}</style>

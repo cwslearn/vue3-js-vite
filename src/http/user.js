@@ -1,0 +1,1 @@
+import { post } from './http'import { urlMap } from './mapping'function userLogin(params) {  return post(urlMap('userLogin'), params)}function userRegister(params) {  return post(urlMap('userRegister'), params)}export { userLogin, userRegister }

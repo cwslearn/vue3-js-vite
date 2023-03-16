@@ -8,6 +8,6 @@
   "bracketSameLine": false,
   "semi": false,
   "arrowParens": "avoid",
-  "endOfLine": "auto",
-  "printWidth": 80
+  "endOfLine": "cr",
+  "singleAttributePerLine": true
 }
