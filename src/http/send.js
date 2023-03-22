@@ -1,0 +1,1 @@
+import { post, get } from './http'import { urlMap } from './mapping'function sendAdd(params) {  return post(urlMap('sendAdd'), params)}function sendGet(params) {  return get(urlMap('sendGet'), params)}export { sendAdd, sendGet }

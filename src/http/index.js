@@ -1,1 +1,1 @@
-import * as userApi from './user'// import { shoporderApi } from './path/shoporder'export default {  ...userApi  // ...shoporderApi}
+import * as userApi from './user'import * as sendApi from './send'export default {  ...userApi,  ...sendApi}
