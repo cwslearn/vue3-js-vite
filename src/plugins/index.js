@@ -1,0 +1,1 @@
+import Message from './selfMessage/Message'// import Notice from './selfNotice/notice'export const initPlugins = app => {  let gb = app.config.globalProperties  gb.$selfMessage = Message  // gb.$selfNotice = Notice;}

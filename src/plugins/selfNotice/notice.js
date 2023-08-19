@@ -1,0 +1,1 @@
+const renderNotice = () => {}const notice = params => {  if (typeof params === 'string') {    renderNotice({      type: 'text',      content: params    })    return  }  renderNotice(params)}notice.error = function () {}export default notice

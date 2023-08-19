@@ -1,1 +1,0 @@
-import fuguo from './fuguo.jpg'import test_img from './test.jpeg'export { fuguo, test_img }
